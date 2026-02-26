@@ -40,4 +40,5 @@ ENDCONFIG
 fi
 
 cp /data/.openclaw/openclaw.json /home/node/.openclaw/openclaw.json
+ln -sfn /data/workspace /home/node/.openclaw/workspace
 exec node openclaw.mjs gateway --allow-unconfigured --bind lan
