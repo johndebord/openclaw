@@ -1,6 +1,7 @@
 #!/bin/sh
-rm -f /data/.openclaw/openclaw.json /home/node/.openclaw/openclaw.json
 mkdir -p /data/.openclaw /home/node/.openclaw
+
+if [ ! -f /data/.openclaw/openclaw.json ]; then
 cat > /data/.openclaw/openclaw.json << ENDCONFIG
 {
   "gateway": {
@@ -21,12 +22,22 @@ cat > /data/.openclaw/openclaw.json << ENDCONFIG
   },
   "agents": {
     "defaults": {
+      "userTimezone": "America/Chicago",
       "model": {
-        "primary": "anthropic/claude-opus-4-6"
+        "primary": "anthropic/claude-sonnet-4-20250514",
+        "fallbacks": ["anthropic/claude-opus-4-6"]
+      },
+      "subagents": {
+        "model": {
+          "primary": "anthropic/claude-haiku-3-5-20241022",
+          "fallbacks": ["anthropic/claude-sonnet-4-20250514"]
+        }
       }
     }
   }
 }
 ENDCONFIG
+fi
+
 cp /data/.openclaw/openclaw.json /home/node/.openclaw/openclaw.json
 exec node openclaw.mjs gateway --allow-unconfigured --bind lan
