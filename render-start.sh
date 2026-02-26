@@ -11,6 +11,13 @@ cat > /data/.openclaw/openclaw.json << 'ENDCONFIG'
       "dangerouslyAllowHostHeaderOriginFallback": true,
       "allowInsecureAuth": true
     }
+  },
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "allowedNumbers": ["+YOUR_NUMBER_HERE"]
+    }
   }
 }
 ENDCONFIG
