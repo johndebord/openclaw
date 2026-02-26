@@ -18,6 +18,13 @@ cat > /data/.openclaw/openclaw.json << ENDCONFIG
       "dmPolicy": "allowlist",
       "allowedNumbers": ["${WHATSAPP_NUMBER}"]
     }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-opus-4-6"
+      }
+    }
   }
 }
 ENDCONFIG
