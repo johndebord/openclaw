@@ -1,7 +1,7 @@
 #!/bin/sh
 rm -f /data/.openclaw/openclaw.json /home/node/.openclaw/openclaw.json
 mkdir -p /data/.openclaw /home/node/.openclaw
-cat > /data/.openclaw/openclaw.json << 'ENDCONFIG'
+cat > /data/.openclaw/openclaw.json << ENDCONFIG
 {
   "gateway": {
     "mode": "local",
@@ -16,7 +16,7 @@ cat > /data/.openclaw/openclaw.json << 'ENDCONFIG'
     "whatsapp": {
       "enabled": true,
       "dmPolicy": "allowlist",
-      "allowedNumbers": ["+YOUR_NUMBER_HERE"]
+      "allowedNumbers": ["${WHATSAPP_NUMBER}"]
     }
   }
 }
