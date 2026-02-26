@@ -64,6 +64,5 @@ USER node
 # For container platforms requiring external health checks:
 #   1. Set OPENCLAW_GATEWAY_TOKEN or OPENCLAW_GATEWAY_PASSWORD env var
 #   2. Override CMD: ["node","openclaw.mjs","gateway","--allow-unconfigured","--bind","lan"]
-COPY render-start.sh /app/render-start.sh
-RUN chmod +x /app/render-start.sh
+COPY --chmod=+x render-start.sh /app/render-start.sh
 CMD ["/app/render-start.sh"]
