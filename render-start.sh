@@ -16,7 +16,7 @@ cat > /data/.openclaw/openclaw.json << ENDCONFIG
     "whatsapp": {
       "enabled": true,
       "dmPolicy": "allowlist",
-      "allowedNumbers": ["${WHATSAPP_NUMBER}"]
+      "allowFrom": ["${WHATSAPP_NUMBER}"]
     }
   },
   "agents": {
